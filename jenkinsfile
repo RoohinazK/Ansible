@@ -3,24 +3,17 @@ node {
   notify('Job Started') 
      
   stage('Git-Checkout') {
-   git 'https://github.com/SaiCharanUppari/terraformrepository.git'
+   git 'https://github.com/RoohinazK/Ansible.git'
   }
-    
- //def project_path="capstoneproject/capstoneproject/"
- 
-// dir(project_path) {
 
 	stage('AWS - Production Server Provisioning'){
 	   sh label: 'terraform', script: '/root/bin/terraform  init'
 	   sh label: 'terraform', script: '/root/bin/terraform  apply -input=false -auto-approve'
 	   }
 	   
-	   stage('Downstream Build -- Ansible Deployment'){
+	 /*  stage('Downstream Build -- Ansible Deployment'){
 		 	build 'hotelAnsible'
-		}
-  
-   
-//}	-----------dir end---------  
+		} */
 
  notify('Job Completed')   
 } catch (err) {
