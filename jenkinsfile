@@ -11,7 +11,7 @@ node {
 	   sh label: 'terraform', script: 'sudo /root/bin/terraform  apply -input=false -auto-approve'
 	   }
 stage('Download package from JFrog') {
-            def server= Artifactory.server 'Artifactory'
+            def server= Artifactory.server 'jFrog'
             def downloadSpec = """{
             "files": [
             {
