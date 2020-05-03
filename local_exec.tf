@@ -6,7 +6,9 @@ terraform {
 }
 
 provider "aws" {
+  shared_credentials_file = "/home/roohinazk25/.aws/credentials"
   region = "us-east-2"
+  
   
 }
 
