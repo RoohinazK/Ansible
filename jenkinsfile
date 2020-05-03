@@ -24,7 +24,7 @@ stage('Download package from JFrog') {
     }
     
     stage('Deployment into production'){
- 	 sh label: 'terraform', script: 'ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
+ 	 sh label: 'terraform', script: 'sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
      }	   
 	 /*  stage('Downstream Build -- Ansible Deployment'){
 		 	build 'hotelAnsible'
