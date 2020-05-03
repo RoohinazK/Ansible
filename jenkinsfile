@@ -1,6 +1,6 @@
 node {
  try  {
-  notify('Job Started') 
+  //notify('Job Started') 
      
   stage('Git-Checkout') {
    git 'https://github.com/RoohinazK/Ansible.git'
@@ -15,7 +15,7 @@ node {
 		 	build 'hotelAnsible'
 		} */
 
- notify('Job Completed')   
+// notify('Job Completed')   
 } catch (err) {
   notify("Error ${err}")
   currentBuild.result = 'FAILURE'
