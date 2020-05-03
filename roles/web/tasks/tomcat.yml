@@ -2,8 +2,8 @@
 #this playbook is to install tomcat.
   - name: Download Tomcat
     get_url: url=http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.34/bin/apache-tomcat-9.0.34.tar.gz  dest=/opt/SP/apps/tomcat.tar.gz mode=0755 
-  - name: Unzip 
-    command: "apt install unzip"
+ # - name: Unzip 
+ #   command: "apt install unzip"
   - name: Extract Tomcat
           # command: "tar xzvf /opt/SP/apps/tomcat.tar.gz  -C /opt/SP/apps/tomcat --strip-components 1" 
     command: "tar xvf /opt/SP/apps/tomcat.tar.gz -C /opt/SP/apps/tomcat creates=/opt/SP/apps/tomcat"
