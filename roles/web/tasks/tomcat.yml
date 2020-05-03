@@ -7,10 +7,10 @@
   - name: Extract Tomcat
           # command: "tar xzvf /opt/SP/apps/tomcat.tar.gz  -C /opt/SP/apps/tomcat --strip-components 1" 
     command: "tar xvf /opt/SP/apps/tomcat.tar.gz -C /opt/SP/apps/tomcat creates=/opt/SP/apps/tomcat"
-  - name: Remove ROOT folder initially
-    command: rm -rf /opt/SP/apps/tomcat/webapps/ROOT
+  #- name: Remove ROOT folder initially
+   # command: rm -rf /opt/SP/apps/tomcat/webapps/ROOT
     
   - name: Copy DevOps Project War Files
-    copy: src=../../../warapp.war dest=/opt/SP/apps/tomcat/webapps/ROOT.war mode=0644
+    copy: src=../../../warapp.war dest=/opt/SP/apps/tomcat/webapps/warapp.war mode=0644
     notify: 
     - Restart Tomcat
