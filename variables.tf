@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "terraform-keypair"
+  default = "roohi"
 }
 
 variable "pvt_key" {
@@ -11,5 +11,5 @@ variable "us-east-zones" {
 }
 
 variable "sg-id" {
-  default = "sg-0b0a8584a8436e304"
+  default = "sg-01a73bb5fbb19a0c1"
 }
