@@ -6,14 +6,14 @@ terraform {
 }
 
 provider "aws" {
-  shared_credentials_file = "/home/roohinazk25/.aws/credentials"
-  region = "us-east-2"
+  shared_credentials_file = "/root/.aws/credentials"
+  region = "ap-south-1"
   
   
 }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-03ffa9b61e8d2cfda"
+  ami                    = "ami-01b8d0884f38e37b4"
   instance_type          = "t2.micro"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${var.sg-id}"]
@@ -45,7 +45,6 @@ provisioner "local-exec" {
         echo "[web]"| tee -a inventory;
         export ANSIBLE_HOST_KEY_CHECKING=False;
         echo "${aws_instance.backend.public_ip}" | tee -a inventory;
-        sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml
     EOT
 }
 }
