@@ -6,11 +6,10 @@ node {
    git 'https://github.com/RoohinazK/Ansible.git'
   }
 
-stage('AWS - Production Server Provisioning'){
+	stage('AWS - Production Server Provisioning'){
 	   sh label: 'terraform', script: 'sudo /root/bin/terraform  init'
 	   sh label: 'terraform', script: 'sudo /root/bin/terraform  apply -input=false -auto-approve'
 	   }
-	
 stage('Download package from JFrog') {
             def server= Artifactory.server 'Artifactory'
             def downloadSpec = """{
@@ -24,10 +23,9 @@ stage('Download package from JFrog') {
         server.download(downloadSpec)
     }
     
-  /*  stage('Deployment into production'){
+    stage('Deployment into production'){
  	 sh label: 'terraform', script: 'sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
-     }	    */
-     
+     }	   
 	 /*  stage('Downstream Build -- Ansible Deployment'){
 		 	build 'hotelAnsible'
 		} */
