@@ -24,9 +24,15 @@ stage('Download package from JFrog') {
     }
     
     stage('Deployment into production'){
- 	 //sh label: 'terraform', script: 'sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
-    // 	ansiblePlaybook become: true, credentialsId: 'ssh', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'
-    ansiblePlaybook become: true, credentialsId: '9512711e-f0e2-4383-ba5c-9d6d80cd5356', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml' }	   
+    
+	 //	sh label: 'terraform', script: 'sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
+    
+    		ansiblePlaybook become: true, credentialsId: 'ssh', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'
+    
+    	//	ansiblePlaybook become: true, credentialsId: '9512711e-f0e2-4383-ba5c-9d6d80cd5356', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml' 
+    
+    }	   
+	 
 	 /*  stage('Downstream Build -- Ansible Deployment'){
 		 	build 'hotelAnsible'
 		} */
